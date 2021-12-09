@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Dem from './Dem';
+import Content from './Content';
 
 function App() {
+  const [check, setCheck] = useState(false)
+  const [show, setShow] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <button type='button' className='btn btn-primary' onClick = { () => setCheck(!check)}>Đếm ngược</button>
+      <button type='button' className='btn btn-warning' onClick = {()=>setShow(!show)}>Toggle</button>
+      {check && <Dem/>}
+      {show && <Content/>}
     </div>
   );
 }
